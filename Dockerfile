@@ -1,7 +1,9 @@
 FROM node:alpine
 LABEL maintainer="williamf.brtz@gmail.com" version="1.1.0"
 
-RUN apk --no-cache add g++ gcc libgcc libstdc++ linux-headers make python
+RUN apk --no-cache add g++ gcc libgcc libstdc++ \
+  linux-headers make python \
+  python2.7 python-dev build-essential
 RUN npm install --quiet node-gyp -g
 
 RUN yarn global add firebase-tools@latest
